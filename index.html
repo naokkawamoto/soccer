@@ -3,60 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USERNAME Dashboard</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
         .header, .footer {
-            background-color: #007bff;
+            background-color: black;
             color: white;
             padding: 10px 0;
         }
-        .sidebar {
-            background-color: #0056b3;
-            color: white;
-            min-height: calc(100vh - 120px);
-            transition: width 0.3s;
-            position: fixed;
-            top: 70px;
-            bottom: 60px;
-        }
-        .sidebar-expanded {
-            width: 250px;
-        }
-        .sidebar-collapsed {
-            width: 0;
-            overflow: hidden;
-        }
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-        }
         .content {
             padding: 15px;
-            margin-left: 250px;
-            transition: margin-left 0.3s;
-        }
-        .content.sidebar-collapsed {
             margin-left: 0;
+            transition: margin-left 0.3s;
         }
         body, html {
             height: 100%;
         }
         .container-fluid {
-            min-height: calc(100vh - 120px);
+            min-height: calc(100vh - 120px); /* Exclude header and footer height */
         }
         .section-title {
             font-size: 1.5rem;
             margin-top: 20px;
             margin-bottom: 10px;
-        }
-        .small-table th, .small-table td {
-            font-size: 0.875rem;
-            padding: 0.25rem;
-        }
-        .small-table th {
-            background-color: #f2f2f2;
         }
         .table th button, .table td button {
             padding: 0;
@@ -66,212 +36,143 @@
             color: inherit;
             cursor: pointer;
         }
+        .pagination {
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .table-container {
+            position: relative;
+        }
+        .create-project-btn {
+            position: absolute;
+            top: -50px;
+            right: 0;
+        }
+        .table-hover tbody tr:hover {
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var rows = document.querySelectorAll('.table-hover tbody tr');
+            rows.forEach(function(row) {
+                row.addEventListener('click', function() {
+                    window.location.href = 'projectdashboard.html';
+                });
+            });
+        });
+    </script>
 </head>
 <body>
-    <div include-html="header.html"></div>
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <h1 class="mb-0"><a href="index.html" class="text-white"></a>Soccer Analysis</a></h1>
+                </div>
+                <a href="index.html" class="text-white">MY Dashboard</a>
+            </div>
+        </div>
+    </header>
 
     <div class="container-fluid">
-        <div class="row">
-            <div include-html="sidebar.html"></div>
+        <main id="main-content" class="content">
+            <h1>Dashboard</h1>
 
-            <main id="main-content" class="col content">
-                <h1>USERNAME Dashboard</h1>
-
-                <!-- Your Project Section -->
-                <section>
+            <!-- Your Project Section -->
+            <section>
+                <div class="table-container">
                     <h2 class="section-title">Your Projects</h2>
-                    <table class="table table-bordered">
+                    <a href="projectcreate.html" class="btn btn-primary create-project-btn">Project Create</a>
+                    <table class="table table-bordered table-hover">
                         <thead>
                             <tr>
-                                <th>ID <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                <th>Project Name <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                <th>Project Start <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                <th>Project End <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                <th>Num Reports <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                <th>Num Inspections <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                <th>Num Issues <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                <th>Progress <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
+                                <th>Team Name <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
+                                <th>Game Name <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
+                                <th>Game Location <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
+                                <th>Climate <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
+                                <th>Kickoff Date <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
                                 <th>Status <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                <th>UPDATE DATE <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                <th>ACTIONS</th>
+                                <th>Movie <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>Project Facility TOKYO</td>
-                                <td>2023-01-01</td>
-                                <td>2023-12-31</td>
-                                <td>33</td>
-                                <td>99</td>
-                                <td>22</td>
-                                <td>
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%;">40%</div>
-                                </td>
-                                <td><span class="badge bg-success">On Schedule</span></td>
-                                <td>2023-07-31</td>
-                                <td><a href="projectdetail.html" class="btn btn-primary btn-sm">DETAIL</a></td>
+                                <td>FC Tokyo</td>
+                                <td>vs Yokohama F. Marinos</td>
+                                <td>Tokyo</td>
+                                <td>Sunny</td>
+                                <td>2023-08-01 18:00</td>
+                                <td>Initial Registration</td>
+                                <td>Waiting for Upload</td>
+                                <td><a href="projected.html" class="btn btn-primary btn-sm">Setting</a></td>
                             </tr>
                             <tr>
-                                <td>2</td>
-                                <td>Project Facility OSAKA</td>
-                                <td>2023-02-01</td>
-                                <td>2023-11-30</td>
-                                <td>55</td>
-                                <td>88</td>
-                                <td>11</td>
-                                <td>
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 70%;">70%</div>
-                                </td>
-                                <td><span class="badge bg-warning">1 Week Delay</span></td>
-                                <td>2023-07-30</td>
-                                <td><a href="projectdetail.html" class="btn btn-primary btn-sm">DETAIL</a></td>
+                                <td>Yokohama F. Marinos</td>
+                                <td>vs Kawasaki Frontale</td>
+                                <td>Yokohama</td>
+                                <td>Cloudy</td>
+                                <td>2023-08-02 19:00</td>
+                                <td>Processed</td>
+                                <td>Uploaded</td>
+                                <td><a href="projected.html" class="btn btn-primary btn-sm">Setting</a></td>
                             </tr>
                             <tr>
-                                <td>3</td>
-                                <td>Project Facility KYOTO</td>
-                                <td>2023-03-01</td>
-                                <td>2023-12-01</td>
-                                <td>44</td>
-                                <td>77</td>
-                                <td>20</td>
-                                <td>
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 50%;">50%</div>
-                                </td>
-                                <td><span class="badge bg-success">On Schedule</span></td>
-                                <td>2023-07-29</td>
-                                <td><a href="projectdetail.html" class="btn btn-primary btn-sm">DETAIL</a></td>
+                                <td>Kawasaki Frontale</td>
+                                <td>vs Urawa Red Diamonds</td>
+                                <td>Kawasaki</td>
+                                <td>Rain</td>
+                                <td>2023-08-03 20:00</td>
+                                <td>Initial Registration</td>
+                                <td>Waiting for Upload</td>
+                                <td><a href="projected.html" class="btn btn-primary btn-sm">Setting</a></td>
+                            </tr>
+                            <tr>
+                                <td>Urawa Red Diamonds</td>
+                                <td>vs Nagoya Grampus</td>
+                                <td>Urawa</td>
+                                <td>Snow</td>
+                                <td>2023-08-04 18:00</td>
+                                <td>Processed</td>
+                                <td>Uploaded</td>
+                                <td><a href="projected.html" class="btn btn-primary btn-sm">Setting</a></td>
+                            </tr>
+                            <tr>
+                                <td>Nagoya Grampus</td>
+                                <td>vs Sagan Tosu</td>
+                                <td>Nagoya</td>
+                                <td>Sunny</td>
+                                <td>2023-08-05 19:00</td>
+                                <td>Initial Registration</td>
+                                <td>Waiting for Upload</td>
+                                <td><a href="projected.html" class="btn btn-primary btn-sm">Setting</a></td>
                             </tr>
                         </tbody>
                     </table>
-                </section>
+                </div>
 
-                <!-- Your Tasks Section -->
-                <section>
-                    <h2 class="section-title">Your Tasks</h2>
-                    
-                    <!-- Task Info -->
-                    <div class="section-content">
-                        <table class="table table-bordered small-table">
-                            <thead>
-                                <tr>
-                                    <th>Issue Count</th>
-                                    <th>Unresolved Issues</th>
-                                    <th>Resolved Issues</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>10</td>
-                                    <td>5</td>
-                                    <td>5</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <!-- Task List -->
-                    <div class="section-content">
-                        <h3 class="section-title">Issue List</h3>
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>ID <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                    <th>Name <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                    <th>Category <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                    <th>Status <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                    <th>Detected By <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                    <th>Assigned To <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                    <th>Thumbnail <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                    <th>Issue Date <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                    <th>Expected Completion <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                    <th>Update Date <button class="btn btn-sm btn-link">▲</button><button class="btn btn-sm btn-link">▼</button></th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Crack on Wall</td>
-                                    <td>Crack</td>
-                                    <td>NEW</td>
-                                    <td>John Doe (PO)</td>
-                                    <td>Michael Brown (PM)</td>
-                                    <td><img src="thumbnail1.jpg" alt="thumbnail" width="50"></td>
-                                    <td>2023-07-01</td>
-                                    <td>2023-07-15</td>
-                                    <td>2023-07-10</td>
-                                    <td><a href="issuedetail.html" class="btn btn-primary btn-sm">DETAIL</a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Peeling Paint</td>
-                                    <td>Peeling</td>
-                                    <td>In Repair</td>
-                                    <td>Jane Smith (PD)</td>
-                                    <td>Chris Wilson (SE)</td>
-                                    <td><img src="thumbnail2.jpg" alt="thumbnail" width="50"></td>
-                                    <td>2023-06-20</td>
-                                    <td>2023-07-05</td>
-                                    <td>2023-07-02</td>
-                                    <td><a href="issuedetail.html" class="btn btn-primary btn-sm">DETAIL</a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Leaking Roof</td>
-                                    <td>Leak</td>
-                                    <td>NEW</td>
-                                    <td>Emily Davis (SM)</td>
-                                    <td>Amanda Miller (SC)</td>
-                                    <td><img src="thumbnail3.jpg" alt="thumbnail" width="50"></td>
-                                    <td>2023-07-05</td>
-                                    <td>2023-07-20</td>
-                                    <td>2023-07-15</td>
-                                    <td><a href="issuedetail.html" class="btn btn-primary btn-sm">DETAIL</a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Broken Window</td>
-                                    <td>Break</td>
-                                    <td>In Repair</td>
-                                    <td>David Martinez (AD)</td>
-                                    <td>John Doe (PO)</td>
-                                    <td><img src="thumbnail4.jpg" alt="thumbnail" width="50"></td>
-                                    <td>2023-06-30</td>
-                                    <td>2023-07-10</td>
-                                    <td>2023-07-08</td>
-                                    <td><a href="issuedetail.html" class="btn btn-primary btn-sm">DETAIL</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-            </main>
-        </div>
+                <!-- Pagination -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </section>
+        </main>
     </div>
 
     <div include-html="footer.html"></div>
-
+    
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/includeHTML.js"></script>
     <script>
         includeHTML();
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('sidebarToggle').addEventListener('click', function() {
-                var sidebar = document.getElementById('sidebar');
-                var mainContent = document.getElementById('main-content');
-                if (sidebar.classList.contains('sidebar-expanded')) {
-                    sidebar.classList.remove('sidebar-expanded');
-                    sidebar.classList.add('sidebar-collapsed');
-                    mainContent.classList.add('sidebar-collapsed');
-                } else {
-                    sidebar.classList.remove('sidebar-collapsed');
-                    sidebar.classList.add('sidebar-expanded');
-                    mainContent.classList.remove('sidebar-collapsed');
-                }
-            });
-        });
     </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Project Create</title>
+    <title>Project Details</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <style>
@@ -91,7 +91,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Project Create</li>
+                    <li class="breadcrumb-item active" aria-current="page">Settings</li>
                 </ol>
             </nav>
 
@@ -108,50 +108,59 @@
                 <div id="game-tab" class="tab-pane fade show active">
                     <div class="form-container">
                         <form>
-                            <div class="form-group">
+                            <div class="form-group editable">
                                 <label for="teamName">Team Name</label>
-                                <input type="text" id="teamName" name="teamName" class="form-control">
+                                <input type="text" id="teamName" name="teamName" class="form-control" value="FC Tokyo" readonly>
+                                <button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('teamName')">Edit</button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group editable">
                                 <label for="gameName">Game Name</label>
-                                <input type="text" id="gameName" name="gameName" class="form-control" placeholder="vs Opponent Name">
+                                <input type="text" id="gameName" name="gameName" class="form-control" value="vs Yokohama F. Marinos" readonly>
+                                <button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('gameName')">Edit</button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group editable">
                                 <label for="gameLocation">Game Location</label>
-                                <input type="text" id="gameLocation" name="gameLocation" class="form-control">
+                                <input type="text" id="gameLocation" name="gameLocation" class="form-control" value="Tokyo" readonly>
+                                <button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('gameLocation')">Edit</button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group editable">
                                 <label for="kickoffDate">Kickoff Date</label>
-                                <input type="date" id="kickoffDate" name="kickoffDate" class="form-control">
+                                <input type="date" id="kickoffDate" name="kickoffDate" class="form-control" value="2023-08-01" readonly>
+                                <button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('kickoffDate')">Edit</button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group editable">
                                 <label for="climate">Climate</label>
-                                <select id="climate" name="climate" class="form-control">
-                                    <option value="Sunny">Sunny</option>
+                                <select id="climate" name="climate" class="form-control" disabled>
+                                    <option value="Sunny" selected>Sunny</option>
                                     <option value="Cloudy">Cloudy</option>
                                     <option value="Rainy">Rainy</option>
                                     <option value="Snowy">Snowy</option>
                                 </select>
+                                <button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('climate')">Edit</button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group editable">
                                 <label for="groundWidth">Ground Size - Width</label>
-                                <input type="text" id="groundWidth" name="groundWidth" class="form-control">
+                                <input type="text" id="groundWidth" name="groundWidth" class="form-control" value="35m" readonly>
+                                <button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('groundWidth')">Edit</button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group editable">
                                 <label for="groundHeight">Ground Size - Height</label>
-                                <input type="text" id="groundHeight" name="groundHeight" class="form-control">
+                                <input type="text" id="groundHeight" name="groundHeight" class="form-control" value="20m" readonly>
+                                <button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('groundHeight')">Edit</button>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group editable">
                                 <label for="movie">Movie</label>
-                                <input type="file" id="movie" name="movie" class="form-control">
+                                <input type="text" id="movie" name="movie" class="form-control" value="Waiting for Upload" readonly>
+                                <button type="button" class="btn btn-danger edit-btn" onclick="toggleEdit('movie')">Upload</button>
                             </div>
                             <div class="form-actions">
                                 <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">Cancel</button>
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
                     </div>
                 </div>
+                
                 <div id="members-tab" class="tab-pane fade">
                     <div class="form-container">
                         <form>
@@ -165,43 +174,53 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td><input type="text" class="form-control" value="John Doe"></td>
+                                        <td><input type="text" class="form-control" value="John Doe" readonly></td>
+                                        <td><button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('member1')">Edit</button></td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td><input type="text" class="form-control" value="Jane Smith"></td>
+                                        <td><input type="text" class="form-control" value="Jane Smith" readonly></td>
+                                        <td><button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('member2')">Edit</button></td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td><input type="text" class="form-control" value="Michael Brown"></td>
+                                        <td><input type="text" class="form-control" value="Michael Brown" readonly></td>
+                                        <td><button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('member3')">Edit</button></td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
-                                        <td><input type="text" class="form-control" value="Emily Davis"></td>
+                                        <td><input type="text" class="form-control" value="Emily Davis" readonly></td>
+                                        <td><button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('member4')">Edit</button></td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
-                                        <td><input type="text" class="form-control" value="Chris Wilson"></td>
+                                        <td><input type="text" class="form-control" value="Chris Wilson" readonly></td>
+                                        <td><button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('member5')">Edit</button></td>
                                     </tr>
                                     <tr>
                                         <td>6</td>
-                                        <td><input type="text" class="form-control" value="Amanda White"></td>
+                                        <td><input type="text" class="form-control" value="Amanda White" readonly></td>
+                                        <td><button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('member6')">Edit</button></td>
                                     </tr>
                                     <tr>
                                         <td>7</td>
-                                        <td><input type="text" class="form-control" value="David Harris"></td>
+                                        <td><input type="text" class="form-control" value="David Harris" readonly></td>
+                                        <td><button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('member7')">Edit</button></td>
                                     </tr>
                                     <tr>
                                         <td>8</td>
-                                        <td><input type="text" class="form-control" value="Linda Johnson"></td>
+                                        <td><input type="text" class="form-control" value="Linda Johnson" readonly></td>
+                                        <td><button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('member8')">Edit</button></td>
                                     </tr>
                                     <tr>
                                         <td>9</td>
-                                        <td><input type="text" class="form-control" value="James Lewis"></td>
+                                        <td><input type="text" class="form-control" value="James Lewis" readonly></td>
+                                        <td><button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('member9')">Edit</button></td>
                                     </tr>
                                     <tr>
                                         <td>10</td>
-                                        <td><input type="text" class="form-control" value="Patricia Clark"></td>
+                                        <td><input type="text" class="form-control" value="Patricia Clark" readonly></td>
+                                        <td><button type="button" class="btn btn-primary edit-btn" onclick="toggleEdit('member10')">Edit</button></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -210,7 +229,7 @@
                             </div>
                             <div class="form-actions">
                                 <button type="button" class="btn btn-secondary" onclick="window.location.href='index.html'">Cancel</button>
-                                <button type="submit" class="btn btn-primary">Create</button>
+                                <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>
                     </div>
@@ -226,5 +245,18 @@
     </footer>
     
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function toggleEdit(fieldId) {
+            var field = document.getElementById(fieldId);
+            if (field.readOnly) {
+                field.readOnly = false;
+                field.disabled = false;
+                field.focus();
+            } else {
+                field.readOnly = true;
+                field.disabled = true;
+            }
+        }
+    </script>
 </body>
 </html>

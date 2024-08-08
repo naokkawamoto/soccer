@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snapshot Edit</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .header, .footer {
+            background-color: black;
+            color: white;
+            padding: 10px 0;
+        }
+        .header a,
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+        body, html {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container-fluid {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .snapshot {
+            max-width: 100%;
+            max-height: 80vh;
+        }
+        .button-overlay {
+            position: absolute;
+            top: 650px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .button-overlay button {
+            margin: 0 5px;
+            padding: 10px 20px;
+            background-color: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <h1 class="mb-0"><a href="index.html" class="text-white" style="text-decoration: none;">Soccer Analysis</a></h1>
+                </div>
+                <a href="index.html" class="text-white" style="text-decoration: none;">MY Dashboard</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid">
+        <img src="./images/movie.png" alt="Snapshot" class="snapshot">
+        <div class="button-overlay">
+            <button onclick="addText()">Add Text</button>
+            <button onclick="addSymbol()">Add Symbol</button>
+            <button onclick="addFreeLine()">Free Line</button>
+            <button onclick="eraser()">Eraser</button>
+            <button onclick="save()">Save</button>
+            <button onclick="window.location.href='projectdashboard.html'">Back</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Footer content here...</p>
+        </div>
+    </footer>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script>
+        function addText() {
+            alert('Add Text functionality is not implemented yet.');
+        }
+
+        function addSymbol() {
+            alert('Add Symbol functionality is not implemented yet.');
+        }
+
+        function addFreeLine() {
+            alert('Free Line functionality is not implemented yet.');
+        }
+
+        function eraser() {
+            alert('Eraser functionality is not implemented yet.');
+        }
+
+        function save() {
+            alert('Save functionality is not implemented yet.');
+        }
+    </script>
+</body>
+</html>
